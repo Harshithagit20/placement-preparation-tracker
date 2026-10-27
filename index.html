@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple dashboard to organize placement preparation, DSA practice, and study goals." />
+  <title>Placement Prep Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Placement Prep Tracker home"><span class="brand-mark">P</span> PrepTrack</a>
+    <span class="topbar-note">Your placement journey, organized.</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL DASHBOARD</p>
+        <h1>Small steps. <span>Big offers.</span></h1>
+        <p class="subheading">Plan your preparation, keep track of practice, and build consistency.</p>
+      </div>
+      <div class="date-card">
+        <span class="date-label">TODAY</span>
+        <strong id="today-date">Let's make progress</strong>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Progress summary">
+      <article class="stat-card">
+        <div class="stat-icon purple">✓</div>
+        <p>Tasks completed</p>
+        <strong id="completed-count">0</strong>
+        <span class="stat-foot">Keep going</span>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon blue">⌘</div>
+        <p>DSA problems solved</p>
+        <strong id="dsa-count">0</strong>
+        <span class="stat-foot">Practice makes progress</span>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon green">◎</div>
+        <p>Daily goal</p>
+        <strong><span id="goal-count">3</span> tasks</strong>
+        <span class="stat-foot">Set a goal you can sustain</span>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel task-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">STAY CONSISTENT</p><h2>Today's study plan</h2></div>
+          <span class="pill" id="task-progress">0% complete</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">New task</label>
+          <input id="task-input" type="text" placeholder="Add a task (e.g. Practice Java loops)" maxlength="100" required />
+          <select id="task-category" aria-label="Task category">
+            <option value="Java">Java</option>
+            <option value="DSA">DSA</option>
+            <option value="Projects">Projects</option>
+            <option value="Aptitude">Aptitude</option>
+            <option value="Resume">Resume</option>
+          </select>
+          <button type="submit">Add task +</button>
+        </form>
+        <div id="task-list" class="task-list" aria-live="polite"></div>
+        <p id="empty-state" class="empty-state">Your plan starts here. Add your first task above.</p>
+      </article>
+
+      <aside class="panel side-panel">
+        <div class="panel-heading"><div><p class="eyebrow">DAILY TARGET</p><h2>Make it achievable</h2></div></div>
+        <label for="daily-goal" class="field-label">Tasks to complete</label>
+        <div class="goal-control">
+          <input id="daily-goal" type="number" min="1" max="20" value="3" />
+          <button id="save-goal" class="secondary-button">Save goal</button>
+        </div>
+        <div class="tip-box">
+          <span class="tip-icon">✦</span>
+          <div><strong>Quick reminder</strong><p>Consistency beats cramming. Focus on understanding one concept at a time.</p></div>
+        </div>
+        <div class="dsa-section">
+          <h3>DSA practice log</h3>
+          <p>Record a problem when you solve it.</p>
+          <form id="dsa-form" class="dsa-form">
+            <input id="dsa-input" type="text" placeholder="Problem name (e.g. Two Sum)" maxlength="100" required />
+            <button type="submit" aria-label="Add solved problem">+</button>
+          </form>
+          <ul id="dsa-list" class="dsa-list"></ul>
+        </div>
+        <button id="reset-data" class="text-button">Reset all saved data</button>
+      </aside>
+    </section>
+    <footer>Built to make placement preparation a little more organized. Your data stays in this browser.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
